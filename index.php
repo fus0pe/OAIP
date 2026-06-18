@@ -1,14 +1,73 @@
 <?php
-require_once 'employee.php';
+ва  
+$numbers = [1, 2, 3, 4, 5];
+$sum = 0;
+foreach ($numbers as $number) {
+    $sum += $number;
+}
+echo "Сумма: $sum\n";
 
-$worker = new Employee('секрет', 2000, 25);
+$max = null;
+foreach ($numbers as $number) {
+    if (is_null($max) || $number > $max) {
+        $max = $number;
+    }
+}
+echo "Максимальный элемент: $max\n";
 
-echo $worker->show();
-echo '<br>';
+$countEven = 0;
+foreach ($numbers as $number) {
+    if ($number % 2 == 0) {
+        $countEven++;
+    }
+}
+echo "Чётные числа: $countEven\n";
 
-$worker->increaseSalary();
-echo $worker->getSalary();
-echo '<br>';
+$average = $sum / count($numbers);
+echo "Среднее арифметическое: $average\n";
 
-$worker->setAge(150);
+foreach ($numbers as &$number) {
+    if ($number < 0) {
+        $number = 0;
+    }
+}
+unset($number);
+print_r($numbers);
+
+$reversed = [];
+for ($i = count($numbers) - 1; $i >= 0; $i--) {
+    $reversed[] = $numbers[$i];
+}
+print_r($reversed);
+
+$x = 3;
+$index = array_search($x, $numbers);
+if ($index !== false) {
+    echo "Число $x найдено по индексу: $index\n";
+} else {
+    echo "Число $x не найдено\n";
+}
+
+$countAboveAverage = 0;
+foreach ($numbers as $number) {
+    if ($number > $average) {
+        $countAboveAverage++;
+    }
+}
+echo "Количество элементов больше среднего: $countAboveAverage\n";
+
+к  
+$strings = ["apple", "banana", "kiwi", "grape"];
+$longStrings = array_filter($strings, function($str) {
+    return strlen($str) > 5;
+});
+print_r($longStrings);
+
+$multiplicationTable = [];
+for ($i = 1; $i <= 10; $i++) {
+    for ($j = 1; $j <= 10; $j++) {
+        $multiplicationTable[$i][$j] = $i * $j;
+    }
+}
+print_r($multiplicationTable);
 ?>
