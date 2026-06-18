@@ -26,9 +26,9 @@ echo "Чётные числа: $countEven\n";
 $average = $sum / count($numbers);
 echo "Среднее арифметическое: $average\n";
 
-foreach ($numbers as &$number) {
-    if ($number < 0) {
-        $number = 0;
+for ($i = 0; $i < count($numbers); $i++){
+    if ($numbers[$i] < 0) {
+        $numbers[$i] = 0;
     }
 }
 unset($number);
